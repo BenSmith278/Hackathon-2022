@@ -31,7 +31,7 @@ uint32_t strAddr;
 #endif
 
 //SPIFlash flash(SS1, &SPI1);       //Use this constructor if using an SPI bus other than the default SPI. Only works with chips with more than one hardware SPI bus
-SPIFlash flash (RANDPIN);
+SPIFlash flash (7);
 
 bool readSerialStr(String &inputStr);
 
@@ -45,7 +45,7 @@ void setup() {
 
   randomSeed(analogRead(RANDPIN));
   strAddr = random(0, flash.getCapacity());
-  String inputString = "This is a test String";
+  String inputString = "This is a test test String";
   flash.writeStr(strAddr, inputString);
   Serial.print(F("Written string: "));
   Serial.println(inputString);
